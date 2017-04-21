@@ -1,0 +1,34 @@
+<a>Bucket List</a> | <a href="#!/dashboard">Home</a> | <a href="/logout">Logout</a>
+
+<h2>Welcome, {{user.name}}!</h2>
+
+<form name="bucketForm">
+  <input type="text" ng-model="newBucket.title" required minlength="5" name="title" placeholder="Title"/>
+  <input type="text" ng-model="newBucket.description" required minlength="10" name="description" placeholder="Description"/>
+  <select ng-model="newBucket.category">
+    <option ng-repeat="n in users" value="{{n.name}}">{{n.name}}</option>
+  </select>
+  <button ng-click="createBucket(newBucket)">Add to List</button>
+</form>
+
+<div ng-messages="bucketForm.title.$error">
+    <p ng-message="required">Title required</p>
+    <p ng-message="minlength">Min length at least 5 characters</p>
+</div>
+<div ng-messages="bucketForm.description.$error">
+    <p ng-message="required">Description required</p>
+    <p ng-message="minlength">Min length at least 10 characters</p>
+</div>
+
+<h3>Before I die I want to..</h3>
+<div ng-repeat="bucket in buckets">
+  <form name="checkForm">
+    <input type="checkbox" ng-model="checkboxModel.value1" />
+    <check ng-click="">{{bucket.category}} {{bucket.title}}- {{bucket.description}}- {{bucket.createdAt}}</check>
+  </form>
+</div>
+
+<h3>List of other users(Click to view profile)</h3>
+<div ng-repeat="u in users">
+  <a href="#!/user/{{u._id}}">{{u.name}}</a>
+</div>

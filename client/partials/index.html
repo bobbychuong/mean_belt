@@ -1,0 +1,13 @@
+<h1>Bucket Lists</h1>
+<h3>Register</h3>
+<form>
+  <label>Name: <input type="text" ng-model="newUser.name"></label>
+  <label>Email: <input type="email" ng-model="newUser.email"></label>
+  <input type="hidden" value="0" ng-model="newUser.topicCount">
+  <button ng-click="register(newUser)">Register</button>
+</form>
+<h3>Login</h3>
+<form>
+  <label>Email: <input type="email" ng-model="user.email"></label>
+  <button ng-click="login(user)">Enter</button>
+</form>
